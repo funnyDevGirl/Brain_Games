@@ -4,6 +4,7 @@ plugins {
     id 'com.github.ben-manes.versions' version '0.47.0'
     id 'application'
     id 'distribution'
+    id 'checkstyle'
 }
 
 group = 'hexlet.code'
@@ -16,6 +17,7 @@ repositories {
 dependencies {
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
+    implementation group: 'com.puppycrawl.tools', name: 'checkstyle', version: '10.12.2'
 }
 
 test {
@@ -28,4 +30,8 @@ application {
 
 compileJava {
     options.release = 20
+}
+
+run {
+    standardInput = System.in
 }
