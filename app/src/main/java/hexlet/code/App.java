@@ -3,6 +3,8 @@ import java.util.Scanner;
 import hexlet.code.games.Even;
 import hexlet.code.games.Calc;
 import hexlet.code.games.GCD;
+import hexlet.code.games.Progression;
+//import hexlet.code.games.Test;
 
 public class App {
     public static void main(String[] args) {
@@ -31,6 +33,9 @@ public class App {
 
         } else if (choice.equals(points[4])) {
             GCD.gcdGame();
+
+        } else if (choice.equals(points[5])) {
+            Progression.progressionGame();
 
         } else {
             System.out.println("Incorrect command input. Goodbye.");
