@@ -1,6 +1,4 @@
 package hexlet.code;
-//import java.util.Arrays;
-//import java.util.Scanner;
 
 public class Engine {
     public static void greet() {
