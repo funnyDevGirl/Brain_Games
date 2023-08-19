@@ -2,6 +2,7 @@ package hexlet.code;
 import java.util.Scanner;
 import hexlet.code.games.Even;
 import hexlet.code.games.Calc;
+import hexlet.code.games.GCD;
 
 public class App {
     public static void main(String[] args) {
@@ -23,11 +24,13 @@ public class App {
             Engine.greet();
 
         } else if (choice.equals(points[2])) {
-            //Engine.greet();
             Even.evenGame();
 
         } else if (choice.equals(points[3])) {
             Calc.calcGame();
+
+        } else if (choice.equals(points[4])) {
+            GCD.gcdGame();
 
         } else {
             System.out.println("Incorrect command input. Goodbye.");
