@@ -1,5 +1,7 @@
 package hexlet.code;
 import java.util.Scanner;
+import hexlet.code.games.Even;
+import hexlet.code.games.Calc;
 
 public class App {
     public static void main(String[] args) {
@@ -18,11 +20,14 @@ public class App {
         String choice = scanner.next();
 
         if (choice.equals(points[1])) {
-            Games.greet();
+            Engine.greet();
 
         } else if (choice.equals(points[2])) {
-            //Games.greet();
-            Games.evenGame();
+            //Engine.greet();
+            Even.evenGame();
+
+        } else if (choice.equals(points[3])) {
+            Calc.calcGame();
 
         } else {
             System.out.println("Incorrect command input. Goodbye.");
