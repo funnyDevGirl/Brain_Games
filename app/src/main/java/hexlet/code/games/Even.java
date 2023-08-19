@@ -2,6 +2,7 @@ package hexlet.code.games;
 
 import hexlet.code.Cli;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Even {
@@ -12,35 +13,35 @@ public class Even {
         System.out.print("May I have your name? ");
         String user = Cli.name();
         System.out.println("Hello, " + user + "!");
-        //2
-        String[][] volumes = {{"15", "50", "33"}, {"no", "yes", "no"}};
 
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-        Scanner scanner1 = new Scanner(System.in);
-        int count = 0;
+        //generate question and result
+        Scanner scanner2 = new Scanner(System.in);
+        Random random = new Random();
+        int[] numbers = new int[3];
         int i = 0;
-        int j = 0;
+        int count = 0;
 
-        while (i < volumes[0].length) {
-            while (j < volumes[1].length) {
-                System.out.println("Question: " + volumes[0][i]);
-                System.out.print("Your answer: ");
-                String answer = scanner1.next();
-                if (answer.equals(volumes[1][j])) {
-                    System.out.println("Correct!");
-                } else {
-                    System.out.println("'yes' is wrong answer ;(. Correct answer was 'no'.");
-                    System.out.println("Let's try again, " + user + "!");
-                    break;
-                }
-                count += 1;
-                i += 1;
-                j += 1;
-                if (count == 3) {
-                    System.out.println("Congratulations, " + user + "!");
-                }
+        while (i < numbers.length) {
+            numbers[i] = random.nextInt(100);
+            String result = (numbers[i] % 2 == 0) ? "yes" : "no";
+
+            System.out.println("Question: " + numbers[i]);
+            System.out.print("Your answer: ");
+            String answer = scanner2.next();
+
+            if (answer.equals(result)) {
+                System.out.println("Correct!");
+            } else {
+                System.out.print("'" + answer + "'" + " is wrong answer ;(. ");
+                System.out.println("Correct answer was " + "'" + result + "'.");
+                System.out.println("Let's try again, " + user + "!");
+                break;
             }
-            break;
+            i += 1;
+            count += 1;
+            if (count == 3) {
+                System.out.println("Congratulations, " + user + "!");
+            }
         }
     }
 }
