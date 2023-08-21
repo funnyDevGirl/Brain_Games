@@ -18,7 +18,8 @@ public class Prime {
 
         while (round < maxRound) {
             //generate question and answer
-            int number = random.nextInt(100);
+            int interval = 100;
+            int number = random.nextInt(interval);
             String rightAnswer = Primes.isPrime(number) ? "yes" : "no";
 
             System.out.println("Question: " + number);
