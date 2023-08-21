@@ -9,43 +9,29 @@ import hexlet.code.games.Progression;
 
 public class App {
     public static void main(String[] args) {
-        System.out.println("Please enter the game number and press Enter.");
-        String[] points = {"0", "1", "2", "3", "4", "5", "6"};
-        System.out.println(points[1] + " - Greet");
-        System.out.println(points[2] + " - Even");
-        System.out.println(points[3] + " - Calc");
-        System.out.println(points[4] + " - GCD");
-        System.out.println(points[5] + " - Progression");
-        System.out.println(points[6] + " - Prime");
-        System.out.println(points[0] + " - Exit");
+        System.out.println("""
+        Please enter the game number and press Enter.
+        1 - Greet
+        2 - Even
+        3 - Calc
+        4 - GCD
+        5 - Progression
+        6 - Prime
+        0 - Exit""");
         System.out.print("Your choice: ");
 
         Scanner scanner = new Scanner(System.in);
         String choice = scanner.next();
 
-        if (choice.equals(points[1])) {
-            Engine.greet();
-
-        } else if (choice.equals(points[2])) {
-            Even.evenGame();
-
-        } else if (choice.equals(points[3])) {
-            Calc.calcGame();
-
-        } else if (choice.equals(points[4])) {
-            GCD.gcdGame();
-
-        } else if (choice.equals(points[5])) {
-            Progression.progressionGame();
-
-        } else if (choice.equals(points[6])) {
-            Prime.primeGame();
-
-        } else if (choice.equals(points[0])) {
-            System.out.println("Goodbye!");
-
-        } else {
-            System.out.println("Incorrect command input. Goodbye.");
+        switch (choice) {
+            case "1" -> Engine.greet();
+            case "2" -> Even.evenGame();
+            case "3" -> Calc.calcGame();
+            case "4" -> GCD.gcdGame();
+            case "5" -> Progression.progressionGame();
+            case "6" -> Prime.primeGame();
+            case "0" -> System.out.println("Goodbye!");
+            default -> System.out.println("Incorrect command input. Goodbye.");
         }
     }
 }
