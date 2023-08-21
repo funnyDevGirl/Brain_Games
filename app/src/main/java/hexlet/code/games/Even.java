@@ -17,7 +17,7 @@ public class Even {
 
         while (round < maxRound) {
             //generate question and answer
-            int interval = 100;
+            final int interval = 100;
             int number = random.nextInt(interval);
             String rightAnswer = (number % 2 == 0) ? "yes" : "no";
 
