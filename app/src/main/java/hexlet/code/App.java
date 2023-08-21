@@ -41,6 +41,9 @@ public class App {
         } else if (choice.equals(points[6])) {
             Prime.primeGame();
 
+        } else if (choice.equals(points[0])) {
+            System.out.println("Goodbye!");
+
         } else {
             System.out.println("Incorrect command input. Goodbye.");
         }
