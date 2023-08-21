@@ -17,8 +17,9 @@ public class GCD {
 
         while (round < maxRound) {
             //generate question and result
-            int number1 = random.nextInt(100);
-            int number2 = random.nextInt(100);
+            int interval = 100;
+            int number1 = random.nextInt(interval);
+            int number2 = random.nextInt(interval);
             String rightAnswer = Integer.toString(gcd(number1, number2));
 
             System.out.println("Question: " + number1 + " " + number2);
