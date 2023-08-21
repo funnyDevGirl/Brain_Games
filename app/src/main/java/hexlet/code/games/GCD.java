@@ -1,65 +1,39 @@
 package hexlet.code.games;
 
-import hexlet.code.Cli;
-import hexlet.code.Utils;
-
-import java.util.InputMismatchException;
+import hexlet.code.Engine;
 import java.util.Random;
 import java.util.Scanner;
 
 public class GCD {
     public static void gcdGame() {
-        //greet
-        //Engine.greet();
-        System.out.println("Welcome to the Brain Games!");
-        System.out.print("May I have your name? ");
-        String user = Cli.name();
-        System.out.println("Hello, " + user + "!");
-        //4
+        Engine.greet();
+
         System.out.println("Find the greatest common divisor of given numbers.");
-
-        //generate question and result
-        Scanner scanner2 = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         Random random = new Random();
-        int[][] numbers = new int[3][3];
-        int i = 0;
-        int j = 0;
-        int count = 0;
 
-        while (i < numbers[0].length) {
-            while (j < numbers[1].length) {
+        final int maxRound = 3;
+        int round = 0;
 
-                numbers[0][i] = random.nextInt(100);
-                numbers[1][j] = random.nextInt(100);
+        while (round < maxRound) {
+            //generate question and result
+            int number1 = random.nextInt(100);
+            int number2 = random.nextInt(100);
+            String rightAnswer = Integer.toString(gcd(number1, number2));
 
-                System.out.println("Question: " + numbers[0][i] + " " + numbers[1][j]);
-                int result = Utils.gcd(numbers[0][i], numbers[1][j]);
-
-                System.out.print("Your answer: ");
-                int answer;
-
-                try {
-                    answer = scanner2.nextInt();
-                } catch (InputMismatchException h) {
-                    System.out.println("Incorrect command input. Goodbye.");
-                    break;
-                }
-                if (answer == result) {
-                    System.out.println("Correct!");
-                } else {
-                    System.out.print("'" + answer + "'" + " is wrong answer ;(. ");
-                    System.out.println("Correct answer was " + "'" + result + "'.");
-                    System.out.println("Let's try again, " + user + "!");
-                    break;
-                }
-                i += 1;
-                j += 1;
-                count += 1;
-                if (count == 3) {
-                    System.out.println("Congratulations, " + user + "!");
-                }
+            System.out.println("Question: " + number1 + " " + number2);
+            System.out.print("Your answer: ");
+            String userAnswer = scanner.next();
+            //checking result
+            if (Engine.checkingAnswer(userAnswer.equals(rightAnswer), rightAnswer, userAnswer)) {
+                break;
             }
-            break;
+            round += 1;
+            Engine.congratulations(round == maxRound);
         }
+    }
+
+    public static int gcd(int a, int b) {
+        return (a % b == 0) ? Math.abs(b) : gcd(b, a % b);
     }
 }
