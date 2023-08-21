@@ -18,11 +18,17 @@ public class Progression {
         while (round < maxRound) {
             //generate question and answer
             //сколько элементов в прогрессии
-            int randomCount = random.nextInt(5, 10);
+            int minInterval = 5;
+            int maxInterval =  10;
+            int randomCount = random.nextInt(minInterval, maxInterval);
             //шаг прогрессии
-            int step = random.nextInt(2, 5);
+            int minStep = 2;
+            int maxStep = 5;
+            int step = random.nextInt(minStep, maxStep);
             //первый элемент прогрессии
-            int begin = random.nextInt(1, 15);
+            int minCoint = 1;
+            int maxCount = 15;
+            int begin = random.nextInt(minCoint, maxCount);
             //создание массива строк с числами (прогрессия)
             int[] numbers = new int[randomCount];
             for (int i = 0; i < randomCount; i++) {
