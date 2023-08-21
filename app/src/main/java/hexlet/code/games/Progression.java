@@ -1,28 +1,22 @@
 package hexlet.code.games;
 
-import hexlet.code.Cli;
-
-import java.util.InputMismatchException;
+import hexlet.code.Engine;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Progression {
     public static void progressionGame() {
-        //greet
-        //Engine.greet();
-        System.out.println("Welcome to the Brain Games!");
-        System.out.print("May I have your name? ");
-        String user = Cli.name();
-        System.out.println("Hello, " + user + "!");
-        //5
+        Engine.greet();
+
         System.out.println("What number is missing in the progression?");
-
-        int count = 0;
-
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
-        int round = 3;
-        while (round > 0) {
+
+        final int maxRound = 3;
+        int round = 0;
+
+        while (round < maxRound) {
+            //generate question and answer
             //сколько элементов в прогрессии
             int randomCount = random.nextInt(5, 10);
             //шаг прогрессии
@@ -37,37 +31,24 @@ public class Progression {
             }
             //рандомный элемент прогрессии
             int randomIndex = random.nextInt(randomCount);
-            int rightAnswer = numbers[randomIndex];
-            var result = new StringBuilder(begin);
-            for (var number : numbers) {
-                result.append(" ").append(number);
+            //массив чисел в строчном формате
+            String[] strNumbers = new String[randomCount];
+            for (int i = 0; i < randomCount; i++) {
+                strNumbers[i] = String.valueOf(numbers[i]);
             }
-            var question = result.toString();
-            var complete = question.replace(String.valueOf(rightAnswer), "..");
+            String rightAnswer = strNumbers[randomIndex];
+            strNumbers[randomIndex] = "..";
 
-            System.out.println("Question: " + complete);
+            //здесь задается вопрос, дается ответ и проверяется
+            System.out.println("Question: " + String.join(" ", strNumbers));
             System.out.print("Your answer: ");
-            int answer;
-
-            try {
-                answer = scanner.nextInt();
-            } catch (InputMismatchException h) {
-                System.out.println("Incorrect command input. Goodbye.");
+            String userAnswer = scanner.next();
+            //checking result
+            if (Engine.checkingAnswer(userAnswer.equals(rightAnswer), rightAnswer, userAnswer)) {
                 break;
             }
-            if (answer == rightAnswer) {
-                System.out.println("Correct!");
-            } else {
-                System.out.print("'" + answer + "'" + " is wrong answer ;(. ");
-                System.out.println("Correct answer was " + "'" + rightAnswer + "'.");
-                System.out.println("Let's try again, " + user + "!");
-                break;
-            }
-            count += 1;
-            round -= 1;
-            if (count == 3) {
-                System.out.println("Congratulations, " + user + "!");
-            }
+            round += 1;
+            Engine.congratulations(round == maxRound);
         }
     }
 }
