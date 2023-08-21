@@ -18,9 +18,12 @@ public class Calc {
 
         while (round < maxRound) {
             //generate question and answer
-            int number1 = random.nextInt(10);
-            int number2 = random.nextInt(5);
-            var randomExpression = expressions[random.nextInt(2)];
+            int firstCount = 5;
+            int lastCount =  10;
+            int number1 = random.nextInt(firstCount);
+            int number2 = random.nextInt(lastCount);
+            int count = 2;
+            var randomExpression = expressions[random.nextInt(count)];
             String rightAnswer = switch (randomExpression) {
                 case "*" -> Integer.toString(number1 * number2);
                 case "-" -> Integer.toString(number1 - number2);
