@@ -5,6 +5,9 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class GCD {
+    public static final int MINBOUND = 1;
+    public static final int MAXBOUND = 100;
+
     public static void gcdGame() {
         Engine.greet();
 
@@ -13,15 +16,13 @@ public class GCD {
         Random random = new Random();
 
         final int maxRound = 3;
-        final int minBound = 1;
-        final int maxBound = 100;
 
         int round = 0;
 
         while (round < maxRound) {
             //generate question and result
-            int number1 = random.nextInt(minBound, maxBound);
-            int number2 = random.nextInt(minBound, maxBound);
+            int number1 = random.nextInt(MINBOUND, MAXBOUND);
+            int number2 = random.nextInt(MINBOUND, MAXBOUND);
 
             String rightAnswer = Integer.toString(gcd(number1, number2));
 

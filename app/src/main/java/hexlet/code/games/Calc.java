@@ -5,6 +5,10 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Calc {
+    public static final int FIRSTBOUND = 5;
+    public static final int LASTBOUND = 10;
+    public static final int INDEX = 2; //индекс элемента, который будет исключен
+
     public static void calcGame() {
         Engine.greet();
 
@@ -13,19 +17,16 @@ public class Calc {
         Random random = new Random();
 
         final int maxRound = 3;
-        final int firstBound = 5;
-        final int lastBound =  10;
-        final int index = 2; //индекс элемента, который будет исключен
 
         int round = 0;
         String[] expressions = {"*", "-", "+"};
 
         while (round < maxRound) {
             //generate question and answer
-            int number1 = random.nextInt(firstBound);
-            int number2 = random.nextInt(lastBound);
+            int number1 = random.nextInt(FIRSTBOUND);
+            int number2 = random.nextInt(LASTBOUND);
 
-            var randomExpression = expressions[random.nextInt(index)];
+            var randomExpression = expressions[random.nextInt(INDEX)];
 
             String rightAnswer = switch (randomExpression) {
                 case "*" -> Integer.toString(number1 * number2);

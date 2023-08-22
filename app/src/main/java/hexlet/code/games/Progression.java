@@ -5,6 +5,13 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Progression {
+    public static final int MINBOUND = 5;
+    public static final int MAXBOUND = 10;
+    public static final int MINSTEP = 2;
+    public static final int MAXSTEP = 5;
+    public static final int MINBOUNDFORELEMENT = 1;
+    public static final int MAXBOUNDFORELEMENT = 15;
+
     public static void progressionGame() {
         Engine.greet();
 
@@ -13,23 +20,17 @@ public class Progression {
         Random random = new Random();
 
         final int maxRound = 3;
-        final int minBound = 5;
-        final int maxBound =  10;
-        final int minStep = 2;
-        final int maxStep = 5;
-        final int firstElementMinBound = 1;
-        final int firstElementMaxBound = 15;
 
         int round = 0;
 
         while (round < maxRound) {
             //generate question and answer
             //сколько элементов в прогрессии
-            int randomCount = random.nextInt(minBound, maxBound);
+            int randomCount = random.nextInt(MINBOUND, MAXBOUND);
             //шаг прогрессии
-            int step = random.nextInt(minStep, maxStep);
+            int step = random.nextInt(MINSTEP, MAXSTEP);
             //первый элемент прогрессии
-            int firstElement = random.nextInt(firstElementMinBound, firstElementMaxBound);
+            int firstElement = random.nextInt(MINBOUNDFORELEMENT, MAXBOUNDFORELEMENT);
             //создание массива строк с числами (прогрессия)
             int[] numbers = new int[randomCount];
             for (int i = 0; i < randomCount; i++) {

@@ -6,6 +6,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Prime {
+    public static final int BOUND = 100;
     public static void primeGame() {
         Engine.greet();
 
@@ -14,13 +15,12 @@ public class Prime {
         Random random = new Random();
 
         final int maxRound = 3;
-        final int bound = 100;
 
         int round = 0;
 
         while (round < maxRound) {
             //generate question and answer
-            int number = random.nextInt(bound);
+            int number = random.nextInt(BOUND);
             String rightAnswer = Primes.isPrime(number) ? "yes" : "no";
 
             System.out.println("Question: " + number);
