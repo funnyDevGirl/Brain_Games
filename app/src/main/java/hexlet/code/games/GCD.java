@@ -13,14 +13,16 @@ public class GCD {
         Random random = new Random();
 
         final int maxRound = 3;
+
         int round = 0;
 
         while (round < maxRound) {
             //generate question and result
-            final int minInterval = 1;
-            final int maxInterval = 100;
-            int number1 = random.nextInt(minInterval, maxInterval);
-            int number2 = random.nextInt(minInterval, maxInterval);
+            final int minBound = 1;
+            final int maxBound = 100;
+
+            int number1 = random.nextInt(minBound, maxBound);
+            int number2 = random.nextInt(minBound, maxBound);
             String rightAnswer = Integer.toString(gcd(number1, number2));
 
             System.out.println("Question: " + number1 + " " + number2);

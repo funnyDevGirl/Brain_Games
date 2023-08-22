@@ -13,17 +13,21 @@ public class Calc {
         Random random = new Random();
 
         final int maxRound = 3;
+
         int round = 0;
         String[] expressions = {"*", "-", "+"};
 
         while (round < maxRound) {
             //generate question and answer
-            final int firstCount = 5;
-            final int lastCount =  10;
-            int number1 = random.nextInt(firstCount);
-            int number2 = random.nextInt(lastCount);
-            final int count = 2;
-            var randomExpression = expressions[random.nextInt(count)];
+            final int firstBound = 5;
+            final int lastBound =  10;
+
+            int number1 = random.nextInt(firstBound);
+            int number2 = random.nextInt(lastBound);
+
+            final int index = 2; //индекс элемента, который будет исключен
+
+            var randomExpression = expressions[random.nextInt(index)];
             String rightAnswer = switch (randomExpression) {
                 case "*" -> Integer.toString(number1 * number2);
                 case "-" -> Integer.toString(number1 - number2);
