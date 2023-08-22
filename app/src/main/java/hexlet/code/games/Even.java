@@ -13,13 +13,12 @@ public class Even {
         Random random = new Random();
 
         final int maxRound = 3;
+        final int bound = 100;
 
         int round = 0;
 
         while (round < maxRound) {
             //generate question and answer
-            final int bound = 100;
-
             int number = random.nextInt(bound);
             String rightAnswer = (number % 2 == 0) ? "yes" : "no";
 

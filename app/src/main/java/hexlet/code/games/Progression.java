@@ -13,25 +13,22 @@ public class Progression {
         Random random = new Random();
 
         final int maxRound = 3;
+        final int minBound = 5;
+        final int maxBound =  10;
+        final int minStep = 2;
+        final int maxStep = 5;
+        final int firstElementMinBound = 1;
+        final int firstElementMaxBound = 15;
 
         int round = 0;
 
         while (round < maxRound) {
             //generate question and answer
             //сколько элементов в прогрессии
-            final int minBound = 5;
-            final int maxBound =  10;
-
             int randomCount = random.nextInt(minBound, maxBound);
             //шаг прогрессии
-            final int minStep = 2;
-            final int maxStep = 5;
-
             int step = random.nextInt(minStep, maxStep);
             //первый элемент прогрессии
-            final int firstElementMinBound = 1;
-            final int firstElementMaxBound = 15;
-
             int firstElement = random.nextInt(firstElementMinBound, firstElementMaxBound);
             //создание массива строк с числами (прогрессия)
             int[] numbers = new int[randomCount];
@@ -39,7 +36,7 @@ public class Progression {
                 numbers[i] = firstElement;
                 firstElement = firstElement + step;
             }
-            //рандомный элемент прогрессии
+            //случайный элемент прогрессии
             int randomIndex = random.nextInt(randomCount);
             //массив чисел в строчном формате
             String[] strNumbers = new String[randomCount];
