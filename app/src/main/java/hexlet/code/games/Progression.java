@@ -10,7 +10,6 @@ public class Progression {
     public static final int MAXSTEP = 5;
     public static final int MINBOUNDFORELEMENT = 1;
     public static final int MAXBOUNDFORELEMENT = 15;
-    static Random random = new Random();
     public static void progressionGame() {
         Engine.greet();
         System.out.println("What number is missing in the progression?");
@@ -19,6 +18,7 @@ public class Progression {
         final int field = 2;
 
         int count = 0;
+        Random random = new Random();
         String[][] roundArr = new String[maxCount][field];
 
         //generate Arr with question and right answer

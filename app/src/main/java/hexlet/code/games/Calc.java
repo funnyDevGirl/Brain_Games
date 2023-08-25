@@ -9,7 +9,6 @@ public class Calc {
     public static final int LASTBOUND = 10;
     public static final int INDEX = 2; //индекс элемента, который будет исключен
     public static final String[] EXPRESSIONS = {"*", "-", "+"};
-    static Random random = new Random();
     public static void calcGame() {
         Engine.greet();
 
@@ -19,6 +18,7 @@ public class Calc {
         final int field = 2;
 
         int count = 0;
+        Random random = new Random();
         String[][] roundArr = new String[maxCount][field];
 
         //generate Arr with question and right answer

@@ -5,7 +5,6 @@ import java.util.Random;
 
 public class Even {
     public static final int BOUND = 100;
-    static Random random = new Random();
     public static void evenGame() {
         Engine.greet();
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
@@ -14,6 +13,7 @@ public class Even {
         final int field = 2;
 
         int count = 0;
+        Random random = new Random();
         String[][] roundArr = new String[maxCount][field];
 
         //generate Arr with question and right answer
