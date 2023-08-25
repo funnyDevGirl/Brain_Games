@@ -2,43 +2,34 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 import java.util.Random;
-import java.util.Scanner;
+
+import static hexlet.code.Utils.gcd;
 
 public class GCD {
     public static final int MINBOUND = 1;
     public static final int MAXBOUND = 100;
-
+    static Random random = new Random();
     public static void gcdGame() {
         Engine.greet();
-
         System.out.println("Find the greatest common divisor of given numbers.");
-        Scanner scanner = new Scanner(System.in);
-        Random random = new Random();
 
-        final int maxRound = 3;
+        final int maxCount = 3;
+        final int field = 2;
 
-        int round = 0;
+        int count = 0;
+        String[][] roundArr = new String[maxCount][field];
 
-        while (round < maxRound) {
-            //generate question and result
-            int number1 = random.nextInt(MINBOUND, MAXBOUND);
-            int number2 = random.nextInt(MINBOUND, MAXBOUND);
+        //generate Arr with question and right answer
+        while (count < maxCount) {
+            for (int i = 0; i < maxCount; i++) {
+                int number1 = random.nextInt(MINBOUND, MAXBOUND);
+                int number2 = random.nextInt(MINBOUND, MAXBOUND);
 
-            String rightAnswer = Integer.toString(gcd(number1, number2));
-
-            System.out.println("Question: " + number1 + " " + number2);
-            System.out.print("Your answer: ");
-            String userAnswer = scanner.next();
-            //checking result
-            if (Engine.checkingAnswer(userAnswer.equals(rightAnswer), rightAnswer, userAnswer)) {
-                break;
+                roundArr[i][0] = number1 + " " + number2;
+                roundArr[i][1] = Integer.toString(gcd(number1, number2));
             }
-            round += 1;
-            Engine.congratulations(round == maxRound);
+            count += 1;
         }
-    }
-
-    public static int gcd(int a, int b) {
-        return (a % b == 0) ? Math.abs(b) : gcd(b, a % b);
+        Engine.userInteraction(roundArr);
     }
 }
