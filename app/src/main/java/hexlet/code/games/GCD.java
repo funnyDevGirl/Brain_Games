@@ -1,35 +1,30 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import java.util.Random;
-
-import static hexlet.code.Utils.gcd;
+import hexlet.code.Utils;
 
 public class GCD {
-    public static final int MINBOUND = 1;
-    public static final int MAXBOUND = 100;
-    public static void gcdGame() {
+    public static final int TRANSMITDATA = 2;
+    public static void findGCD() {
         Engine.greet();
         System.out.println("Find the greatest common divisor of given numbers.");
 
-        final int maxCount = 3;
-        final int field = 2;
-
-        int count = 0;
-        Random random = new Random();
-        String[][] roundArr = new String[maxCount][field];
+        String[][] roundArr = new String[Engine.MAXROUND][TRANSMITDATA];
 
         //generate Arr with question and right answer
-        while (count < maxCount) {
-            for (int i = 0; i < maxCount; i++) {
-                int number1 = random.nextInt(MINBOUND, MAXBOUND);
-                int number2 = random.nextInt(MINBOUND, MAXBOUND);
+        for (int count = 0; count < Engine.MAXROUND;  count++) {
+            for (int i = 0; i < Engine.MAXROUND; i++) {
+                int number1 = Utils.getRandomInt(Utils.MINBOUND, Utils.MAXBOUND);
+                int number2 = Utils.getRandomInt(Utils.MINBOUND, Utils.MAXBOUND);
 
                 roundArr[i][0] = number1 + " " + number2;
                 roundArr[i][1] = Integer.toString(gcd(number1, number2));
             }
-            count += 1;
         }
-        Engine.userInteraction(roundArr);
+        Engine.interact(roundArr);
+    }
+
+    public static int gcd(int a, int b) {
+        return (a % b == 0) ? Math.abs(b) : gcd(b, a % b);
     }
 }

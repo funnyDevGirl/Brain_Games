@@ -1,30 +1,24 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import java.util.Random;
+import hexlet.code.Utils;
 
 public class Even {
-    public static final int BOUND = 100;
-    public static void evenGame() {
+    public static final int TRANSMITDATA = 2;
+    public static void checkParity() {
         Engine.greet();
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
-        final int maxCount = 3;
-        final int field = 2;
-
-        int count = 0;
-        Random random = new Random();
-        String[][] roundArr = new String[maxCount][field];
+        String[][] roundArr = new String[Engine.MAXROUND][TRANSMITDATA];
 
         //generate Arr with question and right answer
-        while (count < maxCount) {
-            for (int i = 0; i < maxCount; i++) {
-                int number = random.nextInt(BOUND);
+        for (int count = 0; count < Engine.MAXROUND;  count++) {
+            for (int i = 0; i < Engine.MAXROUND; i++) {
+                int number = Utils.getRandomInt(Utils.MINBOUND, Utils.MAXBOUND);
                 roundArr[i][0] = Integer.toString(number);
                 roundArr[i][1] = (number % 2 == 0) ? "yes" : "no";
             }
-            count += 1;
         }
-        Engine.userInteraction(roundArr);
+        Engine.interact(roundArr);
     }
 }
