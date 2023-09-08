@@ -3,6 +3,7 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
+    public static final int MAXROUND = 3;
     public static void greet() {
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
@@ -10,26 +11,24 @@ public class Engine {
         System.out.println("Hello, " + user + "!");
     }
 
-    public static void userInteraction(String[][] roundArr) {
+    public static void interact(String[][] roundArr) {
         Scanner scanner = new Scanner(System.in);
 
-        final int maxRound = 3;
-
-        int round = 0;
-
-        while (round < maxRound) {
+        for (int round = 0; round < MAXROUND; round++) {
             System.out.println("Question: " + roundArr[round][0]);
             System.out.print("Your answer: ");
             String userAnswer = scanner.next();
-            if (Engine.checkingAnswer(userAnswer.equals(roundArr[round][1]), roundArr[round][1], userAnswer)) {
+            if (Engine.checkAnswer(userAnswer.equals(roundArr[round][1]), roundArr[round][1], userAnswer)) {
                 break;
             }
-            round += 1;
-            Engine.congratulations(round == maxRound);
+            if (round == (MAXROUND - 1)) {
+                System.out.println("Congratulations, " + Cli.getName() + "!");
+            }
+
         }
     }
 
-    public static boolean checkingAnswer(boolean condition, Object rightAnswer, Object userAnswer) {
+    public static boolean checkAnswer(boolean condition, Object rightAnswer, Object userAnswer) {
 
         if (condition) {
             System.out.println("Correct!");
@@ -40,11 +39,5 @@ public class Engine {
             return true;
         }
         return false;
-    }
-
-    public static void congratulations(boolean condition) {
-        if (condition) {
-            System.out.println("Congratulations, " + Cli.getName() + "!");
-        }
     }
 }

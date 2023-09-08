@@ -26,11 +26,11 @@ public class App {
 
         switch (choice) {
             case "1" -> Engine.greet();
-            case "2" -> Even.evenGame();
-            case "3" -> Calc.calcGame();
-            case "4" -> GCD.gcdGame();
-            case "5" -> Progression.progressionGame();
-            case "6" -> Prime.primeGame();
+            case "2" -> Even.checkParity();
+            case "3" -> Calc.evaluateExpression();
+            case "4" -> GCD.findGCD();
+            case "5" -> Progression.formProgression();
+            case "6" -> Prime.checkSimplicity();
             case "0" -> System.out.println("Goodbye!");
             default -> System.out.println("Incorrect command input. Goodbye.");
         }
