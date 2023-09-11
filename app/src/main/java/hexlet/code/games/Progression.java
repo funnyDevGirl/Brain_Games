@@ -19,24 +19,28 @@ public class Progression {
         for (int count = 0; count < Engine.MAXROUND;  count++) {
             for (int i = 0; i < Engine.MAXROUND; i++) {
 
-                int randomCount = Utils.getRandomInt(Utils.FIRSTBOUND, Utils.LASTBOUND); //кол-во эл. в прогрессии
+                int progressionLength = Utils.getRandomInt(Utils.FIRSTBOUND, Utils.LASTBOUND); //кол-во эл. в прогрессии
                 int step = Utils.getRandomInt(MINSTEP, MAXSTEP); //шаг прогрессии
                 int firstElement = Utils.getRandomInt(MINBOUNDFORELEMENT, MAXBOUNDFORELEMENT); //1й эл-т
+                int hiddenIndex = Utils.getRandomInt(Utils.MINBOUND, progressionLength); //спрятанный эл-т
 
-                //создание массива строк с числами (прогрессия)
-                String[] numbers = new String[randomCount];
-                for (int j = 0; j < randomCount; j++) {
-                    numbers[j] = Integer.toString(firstElement);
-                    firstElement = firstElement + step;
-                }
-                //случайный элемент прогрессии
-                int randomIndex = Utils.getRandomInt(Utils.MINBOUND, randomCount);
+                String[] progression = makeProgression(firstElement, step, progressionLength);
 
-                roundArr[i][1] = numbers[randomIndex];
-                numbers[randomIndex] = "..";
-                roundArr[i][0] = String.join(" ", numbers);
+                roundArr[i][1] = progression[hiddenIndex];
+                progression[hiddenIndex] = "..";
+                roundArr[i][0] = String.join(" ", progression);
             }
         }
         Engine.interact(roundArr);
+    }
+
+    public static String[] makeProgression(int firstElement, int step, int progressionLength) {
+
+        String[] progression = new String[progressionLength];
+        for (int j = 0; j < progressionLength; j++) {
+            progression[j] = Integer.toString(firstElement);
+            firstElement = firstElement + step;
+        }
+        return progression;
     }
 }
