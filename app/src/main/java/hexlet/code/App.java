@@ -7,7 +7,6 @@ import hexlet.code.games.Calc;
 import hexlet.code.games.Prime;
 import hexlet.code.games.Progression;
 
-
 public class App {
     public static void main(String[] args) {
         System.out.println("""
@@ -25,7 +24,7 @@ public class App {
         String choice = scanner.next();
 
         switch (choice) {
-            case "1" -> Engine.greet();
+            case "1" -> Cli.greet();
             case "2" -> Even.checkParity();
             case "3" -> Calc.evaluateExpression();
             case "4" -> GCD.findGCD();
