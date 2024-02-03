@@ -9,7 +9,7 @@
 
 ## The Brain Games project is a set of 5 different mini-games that include tasks that test knowledge in the logical and arithmetic directions.
 
-### 👇 You can view the aciinema records that demonstrate the operation of the application 👇
+### You can view the aciinema records that demonstrate the operation of the application 👇
 
 #### ▸ The game [EVEN](https://asciinema.org/a/eiEz1SJbVcRqa6U1t21JpDo7Z)
 #### ▸ The game [CALCULATOR](https://asciinema.org/a/Rxq2WOBNHlKufwrnQmbHdp6oo)
