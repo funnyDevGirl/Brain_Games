@@ -1,10 +1,8 @@
 
-### Hexlet tests and linter status:
-
+#### Hexlet tests and linter status:
 [![Actions Status](https://github.com/funnyDevGirl/java-project-61/workflows/hexlet-check/badge.svg)](https://github.com/funnyDevGirl/java-project-61/actions)
 
-### Maintainability:
-
+#### Maintainability:
 [![Maintainability](https://api.codeclimate.com/v1/badges/b5ed0d422cd9679db1fa/maintainability)](https://codeclimate.com/github/funnyDevGirl/java-project-61/maintainability)
 
 ## The Brain Games project is a set of 5 different mini-games that include tasks that test knowledge in the logical and arithmetic directions.
