@@ -6,7 +6,6 @@
 ### Maintainability:
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/b5ed0d422cd9679db1fa/maintainability)](https://codeclimate.com/github/funnyDevGirl/java-project-61/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/b5ed0d422cd9679db1fa/test_coverage)](https://codeclimate.com/github/funnyDevGirl/java-project-61/test_coverage)
 
 ## The Brain Games project is a set of 5 different mini-games that include tasks that test knowledge in the logical and arithmetic directions.
 
